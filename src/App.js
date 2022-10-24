@@ -83,7 +83,7 @@ function App() {
             </Card.Text>
           </Card.Body>
           <ListGroup className="list-group-flush">
-            {questions[currentQuestion].answerOptions.map((answerOption) => <ListGroup.Item><Button size="lg" variant="outline-dark" onClick={() => {handleAnswerBtnClick(answerOption.isCorrect)}}>{answerOption.answerText}</Button></ListGroup.Item>)} 
+            {questions[currentQuestion].answerOptions.map((answerOption, i) => <ListGroup.Item key={i}><Button className='btn' variant="primary" onClick={() => {handleAnswerBtnClick(answerOption.isCorrect)}}>{answerOption.answerText}</Button></ListGroup.Item>)} 
           </ListGroup>
         </Card>
       )
