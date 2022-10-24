@@ -49,7 +49,7 @@ function App() {
     },
   ];
 
-  const [currentQuestion, setCurrentQuestion] = useState(1);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [scoreCounter, setScoreCounter] = useState(0);
 
@@ -77,7 +77,7 @@ function App() {
         <Card style={{ width: '18rem' }}>
           <Card.Img variant="top" src="" />
           <Card.Body>
-            <Card.Title className='title'><span>Вопрос 1</span>/{questions.length}</Card.Title>
+            <Card.Title className='title'><span>Вопрос {currentQuestion + 1}</span>/{questions.length}</Card.Title>
             <Card.Text className='text'>
             {questions[currentQuestion].questionText}
             </Card.Text>
