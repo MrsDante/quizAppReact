@@ -77,8 +77,8 @@ function App() {
         <Card style={{ width: '18rem' }}>
           <Card.Img variant="top" src="" />
           <Card.Body>
-            <Card.Title><span>Вопрос 1</span>/{questions.length}</Card.Title>
-            <Card.Text>
+            <Card.Title className='title'><span>Вопрос 1</span>/{questions.length}</Card.Title>
+            <Card.Text className='text'>
             {questions[currentQuestion].questionText}
             </Card.Text>
           </Card.Body>

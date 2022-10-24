@@ -1,17 +1,10 @@
 .App {
   text-align: center;
-  /*display: flex;
-  flex-direction: row;
-  border-radius: 10%;
-  background-color: #61dafb;
-  margin-top: 100px;
-  margin-left: 80px;
-  margin-right: 80px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 10px;
-  padding-right: 10px;*/
-  
+	background-color: powderblue;
+	margin: 100px;
+  padding: 0px 10px 20px 40px;
+
+  border-radius: 7px;
 }
 
 .App-logo {
@@ -38,6 +31,22 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fdfdfe;
+  text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
+    0px 0px 20px #b393d3;
+}
+
+.text {
+  /*color:#b393d3;*/
+  font-size: 15px;
+  font-weight: 500;
+  color: #553c9a;
+  text-transform: uppercase;
 }
 
 .btn {
