@@ -1,6 +1,9 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 function App() {
   const questions = [
@@ -55,7 +58,7 @@ function App() {
       //alert('Верно. Один балл Гриффиндору!')
       setScoreCounter(scoreCounter + 1);
     }
-    
+
     const nextQuestion = currentQuestion + 1;
 
     if (nextQuestion < questions.length) {
@@ -71,17 +74,18 @@ function App() {
       { showScore ? (
         <div className='score-section'>Ваш результат {scoreCounter} из {questions.length}</div>
       ) : (
-        <>
-          <div className='question-section'>
-            <div className='question-count'>
-              <span>Вопрос 1</span>/{questions.length}
-            </div>
-            <div className='question-text'>{questions[currentQuestion].questionText}</div>
-          </div>
-          <div className='answer-section'>
-            {questions[currentQuestion].answerOptions.map((answerOption) => <button onClick={() => {handleAnswerBtnClick(answerOption.isCorrect)}}>{answerOption.answerText}</button>)}
-          </div>
-        </>
+        <Card style={{ width: '18rem' }}>
+          <Card.Img variant="top" src="" />
+          <Card.Body>
+            <Card.Title><span>Вопрос 1</span>/{questions.length}</Card.Title>
+            <Card.Text>
+            {questions[currentQuestion].questionText}
+            </Card.Text>
+          </Card.Body>
+          <ListGroup className="list-group-flush">
+            {questions[currentQuestion].answerOptions.map((answerOption) => <ListGroup.Item><Button size="lg" variant="outline-dark" onClick={() => {handleAnswerBtnClick(answerOption.isCorrect)}}>{answerOption.answerText}</Button></ListGroup.Item>)} 
+          </ListGroup>
+        </Card>
       )
       
     
@@ -90,5 +94,18 @@ function App() {
     </div>
   );
 }
+/*
+        <>
+          <div className='question-section'>
+            <div className='question-count'>
+              <span>Вопрос 1</span>/{questions.length}
+            </div>
+            <div className='question-text'>{questions[currentQuestion].questionText}</div>
+          </div>
+          <div className='answer-section'>
+            {questions[currentQuestion].answerOptions.map((answerOption) => <Button size="lg" variant="outline-dark" onClick={() => {handleAnswerBtnClick(answerOption.isCorrect)}}>{answerOption.answerText}</Button>)}
+          </div>
+        </>
+*/
 
 export default App;
