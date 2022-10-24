@@ -1,5 +1,17 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  border-radius: 10%;
+  background-color: #61dafb;
+  margin-top: 100px;
+  margin-left: 80px;
+  margin-right: 80px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  
 }
 
 .App-logo {
@@ -26,6 +38,15 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.question-section {
+  
+}
+
+.answer-section {
+  display: flex;
+  flex-direction: column;
 }
 
 @keyframes App-logo-spin {
