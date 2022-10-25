@@ -2,6 +2,8 @@
 
 В зависимости от колличества набранных баллов будет варьироваться фраза в конце.
 
+This site was built using [Посмотреть!](https://mrsdante.github.io/quizAppReact/).
+
 
 # Getting Started with Create React App
 
