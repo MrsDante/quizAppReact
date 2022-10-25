@@ -66,14 +66,21 @@ function App() {
     } else {
       setShowScore(true);
     }
-    
+  };
+
+  const renderFinalPage = () => {
+    const resultInProcents = (scoreCounter / questions.length) * 100;
+    const text = `Ваш результат ${scoreCounter} из ${questions.length}`;
+    if (resultInProcents < 30) return (<div className='score-section'>{text}. Даже Поттер лучше танцует балет</div>);
+    if (resultInProcents >= 30 && resultInProcents < 70) return (<div className='score-section'>{text}. Неплохо. Так же неплохо, как зелья Поттера</div>);
+    if (resultInProcents >= 70) return (<div className='score-section'>{text}. Десять очков Гриффиндору!</div>);
   };
 
   return (
     <div className="App">
-      { showScore ? (
-        <div className='score-section'>Ваш результат {scoreCounter} из {questions.length}</div>
-      ) : (
+      { showScore ? 
+        renderFinalPage()
+      : (
         <Card style={{ width: '18rem' }}>
           <Card.Img variant="top" src="" />
           <Card.Body>
@@ -95,6 +102,10 @@ function App() {
   );
 }
 /*
+// <div className='score-section'>Ваш результат {scoreCounter} из {questions.length}</div>
+       {renderFinalPage()}
+      )
+
         <>
           <div className='question-section'>
             <div className='question-count'>
