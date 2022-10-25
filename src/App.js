@@ -68,12 +68,30 @@ function App() {
     }
   };
 
+  const handleStartOver = () => {
+
+  };
+
   const renderFinalPage = () => {
     const resultInProcents = (scoreCounter / questions.length) * 100;
     const text = `Ваш результат ${scoreCounter} из ${questions.length}`;
-    if (resultInProcents < 30) return (<div className='score-section'>{text}. Даже Поттер лучше танцует балет</div>);
-    if (resultInProcents >= 30 && resultInProcents < 70) return (<div className='score-section'>{text}. Неплохо. Так же неплохо, как зелья Поттера</div>);
-    if (resultInProcents >= 70) return (<div className='score-section'>{text}. Десять очков Гриффиндору!</div>);
+    let textAddition = '';
+    if (resultInProcents < 30) textAddition = 'Даже Поттер лучше танцует балет';
+    if (resultInProcents >= 30 && resultInProcents < 70) textAddition = 'Неплохо. Так же неплохо, как зелья Поттера';
+    if (resultInProcents >= 70) textAddition = 'Десять очков Гриффиндору!';
+
+    return (
+      <Card>
+      <Card.Header as="h5">Подведем итог..</Card.Header>
+      <Card.Body>
+        <Card.Title>Ваш результат {scoreCounter} из {questions.length}</Card.Title>
+        <Card.Text>
+          {textAddition}
+        </Card.Text>
+        <Button variant="primary">Попытаться вновь</Button>
+      </Card.Body>
+    </Card>
+    )
   };
 
   return (
