@@ -1,3 +1,8 @@
+# Тест из пяти вопросов, написанный на React, React Hooks
+
+В зависимости от колличества набранных баллов будет варьироваться фраза в конце.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
