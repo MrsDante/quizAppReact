@@ -69,7 +69,26 @@ function App() {
   };
 
   const handleStartOver = () => {
+    setCurrentQuestion(0);
+    setScoreCounter(0);
+    setShowScore(false);
+  };
 
+  const renderQuestionsPart = () => {
+    return (
+      <Card style={{ width: '18rem' }}>
+      <Card.Img variant="top" src="" />
+      <Card.Body>
+        <Card.Title className='title'><span>Вопрос {currentQuestion + 1}</span>/{questions.length}</Card.Title>
+        <Card.Text className='text'>
+        {questions[currentQuestion].questionText}
+        </Card.Text>
+      </Card.Body>
+      <ListGroup className="list-group-flush">
+        {questions[currentQuestion].answerOptions.map((answerOption, i) => <ListGroup.Item key={i}><Button className='btn' variant="primary" onClick={() => {handleAnswerBtnClick(answerOption.isCorrect)}}>{answerOption.answerText}</Button></ListGroup.Item>)} 
+      </ListGroup>
+    </Card>
+    )
   };
 
   const renderFinalPage = () => {
@@ -88,7 +107,7 @@ function App() {
         <Card.Text>
           {textAddition}
         </Card.Text>
-        <Button variant="primary">Попытаться вновь</Button>
+        <Button onClick={handleStartOver} variant="primary">Попытаться вновь</Button>
       </Card.Body>
     </Card>
     )
@@ -98,43 +117,10 @@ function App() {
     <div className="App">
       { showScore ? 
         renderFinalPage()
-      : (
-        <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src="" />
-          <Card.Body>
-            <Card.Title className='title'><span>Вопрос {currentQuestion + 1}</span>/{questions.length}</Card.Title>
-            <Card.Text className='text'>
-            {questions[currentQuestion].questionText}
-            </Card.Text>
-          </Card.Body>
-          <ListGroup className="list-group-flush">
-            {questions[currentQuestion].answerOptions.map((answerOption, i) => <ListGroup.Item key={i}><Button className='btn' variant="primary" onClick={() => {handleAnswerBtnClick(answerOption.isCorrect)}}>{answerOption.answerText}</Button></ListGroup.Item>)} 
-          </ListGroup>
-        </Card>
-      )
-      
-    
-    
+      : renderQuestionsPart()
     }
     </div>
   );
 }
-/*
-// <div className='score-section'>Ваш результат {scoreCounter} из {questions.length}</div>
-       {renderFinalPage()}
-      )
-
-        <>
-          <div className='question-section'>
-            <div className='question-count'>
-              <span>Вопрос 1</span>/{questions.length}
-            </div>
-            <div className='question-text'>{questions[currentQuestion].questionText}</div>
-          </div>
-          <div className='answer-section'>
-            {questions[currentQuestion].answerOptions.map((answerOption) => <Button size="lg" variant="outline-dark" onClick={() => {handleAnswerBtnClick(answerOption.isCorrect)}}>{answerOption.answerText}</Button>)}
-          </div>
-        </>
-*/
 
 export default App;
